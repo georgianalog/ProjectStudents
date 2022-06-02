@@ -1,0 +1,57 @@
+﻿@model IEnumerable< ProjectStudents.Models.View.StudentOnDisciplineModelView>
+
+@{ Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Students";
+}
+<body class="layout-custom">
+<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                 <th>
+                    @Html.DisplayNameFor(model => model.Grade)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateOfGrade)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Grade)
+                    </td>  
+                    <td>
+                    @if(item.DateOfGrade == null)
+                    {
+                        @Html.Display("-");
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.DateOfGrade)
+                    }                    
+                    </td>  
+                    <td>
+                        <button class="btn btn-custom " type="button" onclick="window.location.href='@Url.Action("EditStudentGrade", "Disciplines", new { disciplineId = item.disciplineId, 
+                        Email = item.Email, disciplineName = item.disciplineName,
+                        studentId = item.studentId, name = item.Name, DateOfGrade = item.DateOfGrade, Grade = item.Grade})'">Edit Student Grade</button>  
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </body>

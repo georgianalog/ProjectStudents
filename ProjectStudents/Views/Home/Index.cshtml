@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+    ViewData["Title"] = "Home Page";
+}
+
+<body class="layout-custom">
+    <h1 style="text-align: center; align-items: center;" class="font-custom">Students Management</h1>
+    <hr/>
+<section class="Description" style="padding: 2.5%;">
+  <p class="opacity"><i><pre>                                                       Take the first step to knowledge with us!</pre></i></p>
+</section>
+    <!-- Slide Show -->
+<section >
+  <img class="mySlides" src="~/images/home1.jpg"
+  style="display: block; margin-left: auto; margin-right: auto; width:100%; max-width:500px; max-height: 700px";  >
+  <img class="mySlides" src="~/images/home2.jpg"
+  style="display: block; margin-left: auto; margin-right: auto; width:100%; max-width:500px; max-height: 700px";  >
+  <img class="mySlides" src="~/images/home3.jpg"
+  style="display: block; margin-left: auto; margin-right: auto; width:100%; max-width:500px; max-height: 700px";  >
+</section>
+
+<script>
+// Automatic Slideshow - change image every 3 seconds
+var myIndex = 0;
+carousel();
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 3000);
+}
+</script>
+
+</body>

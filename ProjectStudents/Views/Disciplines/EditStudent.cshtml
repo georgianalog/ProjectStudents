@@ -1,0 +1,33 @@
+﻿@model ProjectStudents.Models.View.GradeModelView
+
+@{ Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Update student grade";
+}
+<body class="layout-custom">
+<h1>Update student grade</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+         <form method="post" asp-action="EditStudent" asp-controller="Disciplines">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+             <div class="form-group">
+                <label asp-for="DateOfGrade" class="control-label"></label>
+                <input asp-for="DateOfGrade" type="datetime" class="form-control"/>
+                <span asp-validation-for="DateOfGrade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Grade" class="control-label"></label>
+                <input asp-for="Grade"type="text" class="form-control"/>
+                <span asp-validation-for="Grade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+</body>

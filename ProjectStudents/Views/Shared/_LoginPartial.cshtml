@@ -1,0 +1,28 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using ProjectStudents.Models.Entities
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+<ul class="navbar-nav">
+@if (!SignInManager.IsSignedIn(User))
+{
+    <li class="nav-item">
+     <a class="nav-link text-dark" asp-area="" asp-controller="Accounts" asp-action="Login">
+     <i class="fa fa-sign-in" aria-hidden="true"></i> LOGIN</a>
+        </li>
+
+        <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Accounts" asp-action="Register">
+     <i class="fa fa-sign-in" aria-hidden="true"></i> REGISTER</a>
+        </li>
+
+        @*<li class="nav-item">
+        <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Accounts/Register">Register</a>
+        </li>*@
+    } else
+    {
+         <a class="nav-link text-dark" asp-area="" asp-controller="Accounts" asp-action="Logout">
+     <i class="fa fa-sign-in" aria-hidden="true"></i> LOGOUT</a>
+    }
+</ul>

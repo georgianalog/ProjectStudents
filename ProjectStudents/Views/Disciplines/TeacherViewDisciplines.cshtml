@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ProjectStudents.Models.Entities.Discipline>
+
+@{ Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Disciplines";
+}
+<body class="layout-custom">
+<h1>Disciplines</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Specialization)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoOfHours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoOfCredits)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Specialization)
+                   
+            </td>
+            <td>
+                   @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.NoOfHours)
+                   
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoOfCredits)
+            </td>
+            <td>
+                <a href="@Url.Action("Materials", "Disciplines", new { disciplineId = item.Id})">Materials</a> 
+                <a href="@Url.Action("Students", "Disciplines", new { disciplineId = item.Id})">Students</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>

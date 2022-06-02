@@ -1,0 +1,49 @@
+﻿@model ProjectStudents.Models.View.MaterialsModelView;
+
+@{ Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Materials";
+}
+<body class="layout-custom">
+@if(User.IsInRole("Teacher"))
+    {
+        <button class="btn btn-custom" type="button" style="float: right;" onclick="window.location.href='@Url.Action("Create", "Materials", new { disciplineId = Model.discipline.Id })'"><u>Add Material</u></button>   
+    }   
+@if (@Model.materials.Count() > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.materials.ElementAt(0).Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.materials.ElementAt(0).URL)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.materials)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.URL)
+
+                    </td>           
+                    <td>
+                        @if (User.IsInRole("Teacher"))
+                        {
+                            <button class="btn btn-custom " type="button" onclick="window.location.href='@Url.Action("Edit", "Materials", new { Id = item.Id })'"><u>Edit Material</u></button>  
+                            <button class="btn btn-custom " type="button" onclick="window.location.href='@Url.Action("Delete", "Materials", new { id = item.Id })'"><u>Delete Material</u></button>  
+                        }
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+</body>

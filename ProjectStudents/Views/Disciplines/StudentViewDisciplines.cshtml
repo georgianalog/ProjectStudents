@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ProjectStudents.Models.View.StudentDisciplineModelView>
+
+@{ Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Disciplines";
+}
+<body class="layout-custom">
+<h1>Disciplines</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Grade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfGrade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoOfHours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoOfCredits)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Grade)
+                   
+            </td>
+            <td>
+                    @if(item.DateOfGrade == null)
+                    {
+                        @Html.Display("-")
+                        ;   
+                    } else
+                    {
+                        @Html.DisplayFor(modelItem => item.DateOfGrade)
+                    }
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.NoOfHours)
+                   
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoOfCredits)
+            </td>
+            <td>
+                <a href="@Url.Action("Materials", "Disciplines", new { disciplineId = item.Id})">Materials</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+    
+</table>
+</body>

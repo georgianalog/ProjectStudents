@@ -1,0 +1,102 @@
+﻿@model ProjectStudents.Models.View.StudentProfileModelView
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "MyProfile";
+}
+
+<style>
+input[type=text],
+		input[type=email],
+        input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+        
+        input[type=text]:focus,
+		input[type=email]:focus,
+        input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+</style>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<body class="layout-custom">
+    <h1 class="font-custom" style="text-align: center">@Model.FirstName @Model.SecondName</h1>
+    <hr />
+    <div class="container emp-profile">
+                <div class="col-md-6">
+                </div>
+        
+                <div>
+                    <div class="tab-content profile-tab" id="myTabContent" style = "margin-top: 20px">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                           
+                            <div class="row">
+                                <div class="col-md-4"  padding-top: 10px>
+                                    <label>First Name</label>
+                                </div>
+                                <div class="col-md-8" >
+                                    <input class="input" asp-for="FirstName" disabled />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4" padding-top: 10px>
+                                    <label>Last Name</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="input" asp-for="SecondName" disabled />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4" padding-top: 10px>
+                                    <label>Email Address</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="input" asp-for="Email" disabled />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4" padding-top: 10px>
+                                    <label>Date of birth</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="input" asp-for="DateOfBirth" disabled />
+                                </div>
+                            </div>      
+                            <div class="row">
+                                <div class="col-md-4" padding-top: 10px>
+                                    <label>GDPR</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="input" asp-for="GDPR" disabled />
+                                </div>
+                            </div>    
+                            <div class="row">
+                                <div class="col-md-4" padding-top: 10px>
+                                    <label>Specialization</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="input" asp-for="Specialization" disabled />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4" padding-top: 10px>
+                                    <label>Year</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="input" asp-for="Year" disabled />
+                                </div>
+                            </div>      
+                        </div>
+                    </div>
+            </div>
+                </div>
+</body>
